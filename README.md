@@ -9,7 +9,7 @@ LFW(Labeled Faces in the Wild Home): [Download Link](http://vis-www.cs.umass.edu
 ```bash
 python3 dcgan_tf.py --data_root ./lfw
 ```
-Validation result will be saved at val/
+Validation results will be saved at val/
 
 ### Results
 <div>
