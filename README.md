@@ -1,6 +1,8 @@
 # dcgan
 Tensorflow implementation of dcgan
 
+[Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434)
+
 ### Dataset
 LFW(Labeled Faces in the Wild Home): [Download Link](http://vis-www.cs.umass.edu/lfw/)
 
