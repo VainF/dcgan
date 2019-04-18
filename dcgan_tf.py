@@ -48,19 +48,19 @@ def Discriminator(x, ndf, reuse=False):
         # 128 x 128
 
         n = tf.layers.conv2d(inputs=n, filters=ndf*2, kernel_size=[4,4], strides=[2,2], padding='SAME',use_bias=False, name='conv_1')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, training=True)
         n = tf.nn.leaky_relu(n)
         print_shape('D_1:',n.shape)
         # 64 x 64
 
         n = tf.layers.conv2d(inputs=n, filters=ndf*4, kernel_size=[4,4], strides=[2,2], padding='SAME',use_bias=False, name='conv_2')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, training=True)
         n = tf.nn.leaky_relu(n)
         print_shape('D_2:',n.shape)
         # 32 x 32
 
         n = tf.layers.conv2d(inputs=n, filters=ndf*8, kernel_size=[4,4], strides=[2,2], padding='SAME',use_bias=False, name='conv_3')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, training=True)
         n = tf.nn.leaky_relu(n)
         print_shape('D_3:',n.shape)
         # 4 x 4
@@ -76,25 +76,25 @@ def Generator(z, ngf, reuse=False):
         print('---- Generator ----')
         nc = 3
         n = tf.layers.conv2d_transpose(inputs=z,filters=ngf*8, kernel_size=[4,4], strides=[1,1],padding='VALID',use_bias=False,name='deconv_0')
-        n = tf.layers.batch_normalization(inputs=n, epsilon=1e-5,momentum=0.1, name='bn_0', training=True)
+        n = tf.layers.batch_normalization(inputs=n, epsilon=1e-5,momentum=0.9, name='bn_0', training=True)
         n = tf.nn.relu(n)
         print_shape('G_0:',n.shape)
         # 4 x 4
 
         n = tf.layers.conv2d_transpose(inputs=n,filters=ngf*4, kernel_size=[4,4], strides=[2,2],padding='SAME',use_bias=False,name='deconv_1')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, name='bn_1', training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, name='bn_1', training=True)
         n = tf.nn.relu(n)
         print_shape('G_1:',n.shape)
         # 8 x 8
 
         n = tf.layers.conv2d_transpose(inputs=n,filters=ngf*2, kernel_size=[4,4], strides=[2,2],padding='SAME',use_bias=False,name='deconv_2')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, name='bn_2', training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, name='bn_2', training=True)
         n = tf.nn.relu(n)
         print_shape('G_2:',n.shape)
         # 16 x 16
 
         n = tf.layers.conv2d_transpose(inputs=n,filters=ngf, kernel_size=[4,4], strides=[2,2],padding='SAME',use_bias=False,name='deconv_3')
-        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.1, name='bn_3', training=True)
+        n = tf.layers.batch_normalization(inputs=n,epsilon=1e-5,momentum=0.9, name='bn_3', training=True)
         n = tf.nn.relu(n)
         print_shape('G_3:',n.shape)
         # 32 x 32
